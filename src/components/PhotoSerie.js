@@ -11,6 +11,7 @@ import {
 // Import Component
 import NewPhoto from "../components/NewPhoto";
 import DeletePhoto from "./DeletePhoto";
+import SerieDesc from "./SerieDesc";
 
 // Import Firestore
 import { fs } from "../firebase";
@@ -18,6 +19,7 @@ import { fs } from "../firebase";
 const PhotoSerie = () => {
   const [images, setImages] = useState([]);
   const [serieName, setSerieName] = useState("");
+  const [serieDesc, setSerieDesc] = useState("");
 
   const match = useRouteMatch("/:serie");
   const { serie } = match.params;
@@ -28,15 +30,16 @@ const PhotoSerie = () => {
       .onSnapshot((doc) => {
         setImages(doc.data().images || []);
         setSerieName(doc.data().name);
+        setSerieDesc(doc.data().desc);
       });
   }, [serie]);
 
   return (
     <SerieContainer>
-      <SerieTitle>{serieName}</SerieTitle>
-      <h3>
+      <SerieTitle>
         Série de photos : <span>{serieName}</span>
-      </h3>
+      </SerieTitle>
+      <h3></h3>
       {images.map((image) => (
         <SingleSerieWrapper key={image.name}>
           <img src={image.url} alt={`${image.name}`} />
@@ -44,6 +47,7 @@ const PhotoSerie = () => {
         </SingleSerieWrapper>
       ))}
       <NewPhoto currentSerie={serie} />
+      <SerieDesc currentSerie={serie} />
     </SerieContainer>
   );
 };

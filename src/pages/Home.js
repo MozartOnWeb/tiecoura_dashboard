@@ -26,7 +26,6 @@ const Home = () => {
           <PhotoSeries />
         </HomeWrapper>
 
-        <hr />
       </HomeContainer>
     );
 }

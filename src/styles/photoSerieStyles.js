@@ -33,6 +33,7 @@ export const SingleSerieWrapper = styled.div`
   height: 100px;
   display: inline-block;
   margin: 0px 35px 0px 0px;
+  position: relative;
   img {
     margin-top: 15px;
     border-radius: 15px;
@@ -64,8 +65,16 @@ export const SerieHeader = styled.div`
 `;
 
 export const SerieTitle = styled.h2`
-  font-family: ${(props) => props.theme.linkFont};
+  font-family: ${(props) => props.theme.mainFont};
+  color: ${(props) => props.theme.white};
   text-transform: uppercase;
+  font-size: 18px;
+  span {
+    margin-left: 10px;
+    font-size: 22px;
+    letter-spacing: 0.8px;
+    color: ${(props) => props.theme.red};
+  }
   ${(props) =>
     props.thin &&
     css`

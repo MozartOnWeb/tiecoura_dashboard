@@ -17,3 +17,4 @@ const app = firebase.initializeApp(firebaseConfig);
 
 export const fs = app.firestore()
 export const sr = app.storage()
+export const func = app.functions()

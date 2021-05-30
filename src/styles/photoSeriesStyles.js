@@ -4,9 +4,8 @@ import styled, { css } from "styled-components";
 export const SerieWrapper = styled.div`
   width: 120px;
   height: 120px;
-  display: inline-block;
   text-align: center;
-  margin: 0px 35px 0px 0px;
+  margin: 0px 35px 45px 0px;
   border: 1px solid ${(props) => props.theme.black};
   border-radius: 15px;
   position: relative;
@@ -17,18 +16,27 @@ export const SerieWrapper = styled.div`
 
   a {
     text-decoration: none;
+
     img {
       border-radius: 15px;
       width: 100%;
-      height: 80%;
+      height: 100%;
       object-fit: cover;
     }
     p {
+      box-sizing: border-box;
       text-align: center;
       text-decoration: none;
       font-size: 14px;
       text-transform: uppercase;
-      margin-top: 25px;
+      position: absolute;
+      bottom: -55px;
+      width: 100%;
+      color: ${(props) => props.theme.black};
+      font-weight: bold;
+      padding: 5px 10px;
+      background-color: #f1faee;
+      border-radius: 10px;
     }
   }
 `;
@@ -49,17 +57,13 @@ export const SingleSerieWrapper = styled.div`
 
 export const SerieContainer = styled.div`
   width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
   margin: 50px auto;
-  h3 {
-    font-family: ${(props) => props.theme.linkFont};
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    span {
-      font-size: 14px;
-      letter-spacing: 0.8px;
-      color: ${(props) => props.theme.red};
-    }
+  hr {
+    width: 90vw;
+    margin: 30px auto;
+    opacity: 0.4;
   }
 `;
 

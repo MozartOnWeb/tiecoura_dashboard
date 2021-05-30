@@ -4,11 +4,6 @@ import styled, { css } from "styled-components";
 export const HomeContainer = styled.div`
   width: 90vw;
   margin: 0px auto;
-  hr {
-    width: 90vw;
-    margin: 20px auto;
-    opacity: 0.7;
-  }
 `;
 export const HomeWrapper = styled.div`
   width: 90vw;
@@ -23,17 +18,25 @@ export const HomeHeadrer = styled.div`
 `;
 
 export const HomeTitle = styled.h2`
-  font-family: ${(props) => props.theme.linkFont};
+  text-align: right;
+  color: ${(props) => props.theme.white};
+  letter-spacing: 1.4px;
   text-transform: uppercase;
   ${(props) =>
     props.thin &&
     css`
-      font-size: 16px;
-      margin-bottom: 20px;
+      text-align: left;
+      margin-top: -10px;
+      font-size: 14px;
+      margin-bottom: -20px;
       font-weight: 300;
+      opacity: 0.8;
     `}
 `;
 
 export const HomeSubTitle = styled.p`
+  text-align: right;
   font-family: ${(props) => props.theme.bodyFont};
+  color: ${(props) => props.theme.white};
+  opacity: 0.6;
 `;

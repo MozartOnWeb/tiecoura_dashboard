@@ -2,14 +2,15 @@ import React from "react";
 import firebase from "firebase";
 
 // Import Styles
-import {Delete} from '../styles/deletePhotoStyles'
+import { Delete } from "../styles/deletePhotoStyles";
 
 import { fs, sr } from "../firebase";
 
 const DeletePhoto = ({ url, name, currentSerie }) => {
   const onDelete = async () => {
     const storageRef = sr.ref();
-    const fileRef = storageRef.child(name);
+    const fileRef = storageRef.child(`images/${currentSerie}/${name}`);
+
     await fileRef.delete();
     fs.collection("series")
       .doc(currentSerie)
@@ -23,7 +24,7 @@ const DeletePhoto = ({ url, name, currentSerie }) => {
 
   return (
     <>
-      <Delete onClick={onDelete}>Delete</Delete>
+      <Delete onClick={onDelete}>X</Delete>
     </>
   );
 };

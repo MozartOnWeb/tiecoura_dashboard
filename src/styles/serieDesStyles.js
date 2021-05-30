@@ -1,13 +1,17 @@
 import styled from "styled-components";
+import { down } from "styled-breakpoints";
 
-export const PhotoForm = styled.div`
+export const DescWrapper = styled.div`
+  width: 300px;
   position: absolute;
   bottom: 5%;
-  width: 300px;
-
-  input {
+  right: 8%;
+  
+  textarea {
+    resize: none;
+  }
+  textarea {
     margin-bottom: 10px;
-    margin-top: 20px;
     font-family: ${(props) => props.theme.mainFont};
     color: ${(props) => props.theme.white};
     font-size: 14px;
@@ -19,12 +23,8 @@ export const PhotoForm = styled.div`
     position: relative;
     outline: none;
   }
-
-  input[type="file"] {
-    font-size: 14px;
-  }
   button {
-    margin-top: 10px;
     font-size: 12px;
+    margin-top: 10px;
   }
 `;

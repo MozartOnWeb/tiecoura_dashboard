@@ -15,13 +15,14 @@ const GlobalStyles = createGlobalStyle`
 
 * {
   font-family: "Poppins";
+  background-color: #161616;
 }
 
 html, body {
 
 }
 
-`
+`;
 
 
 const Theme = {
