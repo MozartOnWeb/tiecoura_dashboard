@@ -1,13 +1,17 @@
 // Import Styled Components
 import styled, { css } from "styled-components";
 
+//Import Styled Breakpoint
+import { down } from "styled-breakpoints";
+
 export const HomeContainer = styled.div`
   width: 90vw;
   margin: 0px auto;
+  overflow-x: hidden;
 `;
 export const HomeWrapper = styled.div`
   width: 90vw;
-  height: 80vh;
+  min-height: 80vh;
   margin: 0px auto;
   position: relative;
 `;
@@ -22,6 +26,9 @@ export const HomeTitle = styled.h2`
   color: ${(props) => props.theme.white};
   letter-spacing: 1.4px;
   text-transform: uppercase;
+  ${down("sm")} {
+    margin-right: 15px;
+  }
   ${(props) =>
     props.thin &&
     css`
@@ -31,6 +38,9 @@ export const HomeTitle = styled.h2`
       margin-bottom: -20px;
       font-weight: 300;
       opacity: 0.8;
+      ${down("sm")} {
+        margin-left: 15px;
+      }
     `}
 `;
 
@@ -39,4 +49,7 @@ export const HomeSubTitle = styled.p`
   font-family: ${(props) => props.theme.bodyFont};
   color: ${(props) => props.theme.white};
   opacity: 0.6;
+  ${down("sm")} {
+    margin-right: 15px;
+  }
 `;

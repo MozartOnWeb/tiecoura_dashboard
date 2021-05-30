@@ -22,9 +22,11 @@ const SerieDesc = ({ currentSerie }) => {
   }, []);
 
   const onSend = () => {
-    fs.collection("series").doc(currentSerie).update({
-      desc: desc,
-    });
+    if (desc) {
+      fs.collection("series").doc(currentSerie).update({
+        desc: desc,
+      });
+    }
   };
 
   return (

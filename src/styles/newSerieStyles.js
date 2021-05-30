@@ -1,9 +1,12 @@
 import styled from "styled-components";
-// import { only } from "styled-breakpoints";
+import { down } from "styled-breakpoints";
 
 export const SerieForm = styled.div`
   bottom: 5%;
   width: 300px;
+  ${down("sm")} {
+    width: 100%;
+  }
 
   input {
     margin-bottom: 10px;

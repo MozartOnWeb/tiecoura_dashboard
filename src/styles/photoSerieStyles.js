@@ -1,32 +1,8 @@
 // Import Styled Components
 import styled, { css } from "styled-components";
 
-export const SerieWrapper = styled.div`
-  width: 140px;
-  height: 140px;
-  display: inline-block;
-  margin: 0px 35px 0px 0px;
-
-  h3 {
-    font-family: ${(props) => props.theme.linkFont};
-  }
-
-  a {
-    text-decoration: none;
-    img {
-      border-radius: 15px;
-      width: 100%;
-      height: 80%;
-      object-fit: cover;
-    }
-    p {
-      text-align: center;
-      text-decoration: none;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-  }
-`;
+// Import Styeld Breakpoints
+import { down } from "styled-breakpoints";
 
 export const SingleSerieWrapper = styled.div`
   width: 100px;
@@ -41,27 +17,47 @@ export const SingleSerieWrapper = styled.div`
     height: 100%;
     object-fit: cover;
   }
+  ${down("sm")} {
+    width: 130px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+  ${down("s")} {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const SerieContainer = styled.div`
   width: 90vw;
   margin: 50px auto;
+  overflow-x: hidden;
   h3 {
     font-family: ${(props) => props.theme.linkFont};
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    span {
-      font-size: 14px;
-      letter-spacing: 0.8px;
-      color: ${(props) => props.theme.red};
+  }
+  hr {
+    display: none;
+  }
+  .series_container {
+    ${down("sm")} {
+      margin: 0 auto;
+      flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
-`;
-
-export const SerieHeader = styled.div`
-  width: 90vw;
-  margin: 50px auto;
+  ${down("sm")} {
+    hr {
+      display: block;
+      width: 90vw;
+      margin: 25px auto;
+    }
+  }
 `;
 
 export const SerieTitle = styled.h2`
@@ -84,6 +80,22 @@ export const SerieTitle = styled.h2`
     `}
 `;
 
-export const SerieSubTitle = styled.p`
-  font-family: ${(props) => props.theme.bodyFont};
+export const SerieHeader = styled.div`
+  width: 90vw;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+`;
+
+export const Back = styled.div`
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  svg {
+    width: 100%;
+    height: 100%;
+    path {
+      fill: ${(props) => props.theme.red};
+    }
+  }
 `;

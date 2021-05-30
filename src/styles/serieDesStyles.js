@@ -1,4 +1,7 @@
+// Import Styled Components
 import styled from "styled-components";
+
+// Import styled Breakpoints
 import { down } from "styled-breakpoints";
 
 export const DescWrapper = styled.div`
@@ -6,7 +9,11 @@ export const DescWrapper = styled.div`
   position: absolute;
   bottom: 5%;
   right: 8%;
-  
+  ${down("sm")} {
+    width: 100%;
+    position: relative;
+  }
+
   textarea {
     resize: none;
   }
@@ -26,5 +33,8 @@ export const DescWrapper = styled.div`
   button {
     font-size: 12px;
     margin-top: 10px;
+    ${down("sm")} {
+      margin-left: 30px;
+    }
   }
 `;

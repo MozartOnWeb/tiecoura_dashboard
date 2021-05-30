@@ -1,15 +1,27 @@
 // Import Styled Components
 import styled, { css } from "styled-components";
 
+// Import styled Breakpoints
+import { down } from "styled-breakpoints";
+
 export const SerieWrapper = styled.div`
   width: 120px;
   height: 120px;
   text-align: center;
-  margin: 0px 35px 45px 0px;
+  margin: 0px 35px 70px 0px;
   border: 1px solid ${(props) => props.theme.black};
   border-radius: 15px;
   position: relative;
-
+  ${down("sm")} {
+    width: 135px;
+    margin-bottom: 65px;
+    margin-right: 15px;
+  }
+  ${down("s")} {
+    width: 120px;
+    margin-bottom: 65px;
+    margin-right: 20px;
+  }
   h3 {
     font-family: ${(props) => props.theme.linkFont};
   }
@@ -60,9 +72,13 @@ export const SerieContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   hr {
     width: 90vw;
-    margin: 30px auto;
+    margin: 10px auto;
     opacity: 0.4;
   }
 `;

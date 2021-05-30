@@ -12,24 +12,35 @@ import { fs, sr } from "../firebase/";
 
 const NewPhoto = ({ currentSerie }) => {
   const [file, setFile] = useState(null);
+  const [error, setError] = useState("");
+
+  const types = ["image/png", "image/jpeg"];
 
   const onFileChange = (e) => {
-    setFile(e.target.files[0]);
+    let selected = e.target.files[0];
+    if (selected && types.includes(selected.type)) {
+      setFile(selected);
+      setError("");
+    } else {
+      setError(alert("Tiecoura Veuillez choisir une image au format png/jpeg"));
+      setFile(null);
+    }
   };
 
   const onUpload = async () => {
-    const storageRef = sr.ref();
-    const fileRef = storageRef.child(`images/${currentSerie}/${file.name}`);
-    await fileRef.put(file);
-    fs.collection("series")
-      .doc(currentSerie)
-      .update({
-        images: firebase.firestore.FieldValue.arrayUnion({
-          name: file.name,
-          url: await fileRef.getDownloadURL(),
-        }),
-      });
-    setFile(null)
+    if (file) {
+      const storageRef = sr.ref();
+      const fileRef = storageRef.child(`images/${currentSerie}/${file.name}`);
+      await fileRef.put(file);
+      fs.collection("series")
+        .doc(currentSerie)
+        .update({
+          images: firebase.firestore.FieldValue.arrayUnion({
+            name: file.name,
+            url: await fileRef.getDownloadURL(),
+          }),
+        });
+    }
   };
 
   return (

@@ -1,9 +1,18 @@
+// Import Styled Components
 import styled from "styled-components";
 
+// Import styled Breakpoints
+import { down } from "styled-breakpoints";
+
 export const PhotoForm = styled.div`
-  position: absolute;
   bottom: 5%;
   width: 300px;
+  position: absolute;
+  ${down("sm")} {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+  }
 
   input {
     margin-bottom: 10px;
